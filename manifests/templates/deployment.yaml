@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jujujuju
+  labels:
+    app: jujujuju
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jujujuju
+  template:
+    metadata:
+      labels:
+        app: jujujuju
+    spec:
+      containers:
+        - name: jujujuju
+          image: docker.io/phengbunath/jujujuju:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
